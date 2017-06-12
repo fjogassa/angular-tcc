@@ -5,13 +5,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lista',
-  templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.css']
+  templateUrl: '../../comum/lista.component.html',
+  styleUrls:  ['../../comum/lista.component.css']
 })
-export class ListaComponent extends SuperLista implements OnInit {
+export class ListaCursoComponent extends SuperLista implements OnInit {
 
   constructor(service:CursoService, router:Router, route: ActivatedRoute) { 
-    super(service,router,route);
+
+    super(service, router, route);
+    
     this.cols = [ 
       {field: 'nome', header: 'Nome'},
       {field: 'version', header: 'Versão'}

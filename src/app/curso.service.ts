@@ -7,9 +7,9 @@ export class CursoService extends SuperService {
 
   constructor(http: Http) {
     super('curso', http);
-   }
+  }
 
-   filtra(filtro):Promise<any> {
+  filtra(filtro):Promise<any> {
     return this.http.get(`${this.baseUrl}/${this.collection}?searchFields=nome&q=${filtro}`)
       .toPromise().then(response=>response.json())
       .catch(this.errorHandler);

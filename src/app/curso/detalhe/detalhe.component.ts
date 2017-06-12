@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+import { CursoService } from '../../curso.service';
+import { SuperDetalhes } from '../../comum/superdetalhes.component';
 
 @Component({
   selector: 'app-detalhe',
   templateUrl: './detalhe.component.html',
   styleUrls: ['./detalhe.component.css']
 })
-export class DetalheComponent implements OnInit {
+export class DetalheCursoComponent extends SuperDetalhes implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(service: CursoService, router: Router,route: ActivatedRoute) {
+    super(service,router,route);
   }
+
 
 }

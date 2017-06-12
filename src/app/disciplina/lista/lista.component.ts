@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { SuperLista } from '../../comum/superlista.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DisciplinaService } from '../../disciplina.service';
 
 @Component({
   selector: 'app-lista',
-  templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.css']
+  templateUrl: '../../comum/lista.component.html',
+  styleUrls:  ['../../comum/lista.component.css']
 })
-export class ListaComponent extends SuperLista implements OnInit {
+export class ListaDisciplinaComponent extends SuperLista implements OnInit {
 
-  constructor(service:DisciplinaService, router:Router, route: ActivatedRoute) { 
-    super(service,router,route);
+  constructor(service: DisciplinaService, router: Router, route: ActivatedRoute) { 
+    super(service, router, route);
+
     this.cols = [ 
-      {field: 'nome', header: 'Nome'}, 
-      {field: 'curso.nome', header: 'Curso'}    
+      {field: 'id', header: 'Código'}, 
+      {field: 'nome', header: 'Nome'}
     ];
   }
 }

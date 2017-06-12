@@ -8,9 +8,11 @@ export class SuperCrud {
     constructor(protected service) {
 
     }
+
     ngOnInit() {
         this.service.errorHandler = error => this.error(error);
     }
+
     error(erro) {
         console.log(erro);
         this.msgs = [];

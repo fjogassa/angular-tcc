@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './crud.component.html',
   styleUrls: ['./crud.component.css']
 })
-export class CrudComponent implements OnInit {
+export class CrudAlunoComponent implements OnInit {
 
   constructor() { }
 

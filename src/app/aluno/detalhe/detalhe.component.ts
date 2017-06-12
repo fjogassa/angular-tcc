@@ -1,49 +1,39 @@
-import { AlunoService } from './../../aluno.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+import { AlunoService } from './../../aluno.service';
 import { SuperDetalhes } from '../../comum/superdetalhes.component';
-import { DisciplinaService } from '../../disciplina.service';
+import { CursoService } from '../../curso.service';
 
 @Component({
   selector: 'app-detalhe',
   templateUrl: './detalhe.component.html',
   styleUrls: ['./detalhe.component.css']
 })
-export class DetalheComponent extends SuperDetalhes implements OnInit {
+export class DetalheAlunoComponent extends SuperDetalhes implements OnInit {
 
-  alunos = [];
-  selecionado = {itens:[]};
-  aluno;
+  cursos = [];
 
-  constructor(service: AlunoService, router: Router, route: ActivatedRoute, private alunoService: AlunoService) {
-    super(service, router, route);
-  }
-
-  inserirAluno(){
-     console.log(this.selecionado.itens,this.aluno);
-     if (!this.selecionado.itens){
-       this.selecionado.itens=[];
-     }
-     this.selecionado.itens.push({produto:this.aluno, quantidade:1});
-     this.aluno = null;
+  constructor(service: AlunoService, router: Router, route: ActivatedRoute, 
+    private cursoService: CursoService) {
+      super(service, router, route);
   }
 
   ngOnInit() {
     super.ngOnInit();
-    this.atualizaAluno();
-
+    this.atualizaCursos();
   }
 
-  atualizaAluno() {
-    this.alunoService.getAll().then(response => {
-      this.alunos = response.values;
+  atualizaCursos() {
+    this.cursoService.getAll().then(response => {
+      this.cursos = response.values;
     });
   }
 
-  filtrarAlunos(event) {
+  filtrarCursos(event) {
     let query = event.query;
-    this.alunoService.filtra(query).then(response => {
-      this.alunos = response.values;
+    this.cursoService.filtra(query).then(response => {
+      this.cursos = response.values;
     });
   }
 }

@@ -13,7 +13,7 @@ export class InicioComponent implements OnInit {
 
   listaAlunos: any[];
   listaCursos: any[];
-  listaDisciplina: any[];
+  listaDisciplinas: any[];
 
   constructor(
     private alunoService:AlunoService,
@@ -22,18 +22,21 @@ export class InicioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    this.atualiza();
   }
 
   atualiza() {
+
     this.alunoService.getAll().then(response=>{
-      this.listaAlunos=response.values;
+      this.listaAlunos = response.values;
     });
+
     this.disciplinaService.getAll().then(response=>{
-      this.listaDisciplina=response.values;
+      this.listaDisciplinas = response.values;
     });
+
     this.cursoService.getAll().then(response=>{
-      this.listaCursos=response.values;
+      this.listaCursos = response.values;
     });
   }
 
