@@ -17,8 +17,6 @@
 <button pButton type="button" label="Inserir" icon="fa-folder-open" 
     (click)="inserirAluno()"></button>
 
-<p-dataTable [value]="selecionado.itens" [editable]="true">
-    <!--<p-column *ngFor="let item of colunas" [field]="item.nome" [header]="item.quantidade"></p-column>-->
-    <p-column field="aluno.nome" header="Aluno"> </p-column>
-    <p-column field="quantidade" header="Quantidade" [editable]="true"></p-column>
+<p-dataTable [value]="selecionado.alunos" [editable]="true">    
+    <p-column field="nome" header="Aluno"> </p-column>    
 </p-dataTable>
