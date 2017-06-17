@@ -24,9 +24,13 @@ export class DetalheDisciplinaComponent extends SuperDetalhes implements OnInit 
   inserirAluno(){    
     if (!this.selecionado.alunos) {
       this.selecionado.alunos = [];
-    }    
+    }
+    let antigo = this.selecionado.alunos;
+    this.selecionado.alunos = [];
+    for (let i = 0; i < antigo.length; i++) {
+      this.selecionado.alunos.push(antigo[i]);
+    } 
     this.selecionado.alunos.push(this.aluno);    
-    this.selecionado.alunos = [...this.selecionado.alunos];
     this.aluno = null;
   }
 
